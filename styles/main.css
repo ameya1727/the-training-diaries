@@ -1,6 +1,11 @@
+/* ------------------------------------------------- */
+/* BASIC SETUP */
+/* ------------------------------------------------- */
 *,
 *::before,
 *::after {
+    margin:0;
+    padding:0;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -10,30 +15,105 @@ html {
     height: 100%;
     /* makes sure our HTML takes up 100% of the browser window */
     font-size: 100%;
-}
-
-body {
-    /*font-family: 'Shadows Into Light', cursive; 
-    font-family: 'Caveat', cursive; */
+    background-color: #fff;
     font-family: 'Roboto', sans-serif;
     color: #4c4c4c;
-    
     font-size: 18px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------------------------- */
+/* REUSABLE COMPONENTS */
+/* ------------------------------------------------- */
+.row {
+    max-width: 1140px;
+    margin:0 auto;
+}
+
+
+body {
+    
+    /*font-family: 'Shadows Into Light', cursive; 
+    font-family: 'Caveat', cursive; */
+    min-height: 100%;
+    
     /* says the height of the body must be, at minimum, 100% of the window */
-    border:1px solid blue;
+    
 }
 
 .container {
     padding: 25px;
-    background-color: bisque;
     min-height: 100%;
     font-size: 18px;
-    border:1px solid black;
 }
 
+/* ------------------------------------------------- */
+/* HEADER */
+/* ------------------------------------------------- */
 
-/* -------- navigation styles ---------- */
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/exercise-female.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh; 
+}
 
+/* -------- Navigation ---------- */
+.ttd-Imgheader{
+    width: 100%;
+    text-align: center;
+}
+.ttd-Navbar {
+    border-bottom: 2px solid #4c4c4c;
+    display: flex;
+    padding: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    font-size: 150%;
+  }
+
+.ttd-Navbar__Link-brand:link,
+.ttd-Navbar__Link-brand:visited {
+    font-size: 200%;
+    text-decoration: none;
+    color:#fff;
+}
+
+.ttd-Navbar__Link-brand:hover,
+.ttd-Navbar__Link-brand:active {
+    color:#42f46e;
+}
+
+.ttd-Navbar__Link a:link,
+.ttd-Navbar__Link a:visited {
+    padding-right: 45px;
+    text-decoration: none;
+    color:#fff;
+  }
+
+.ttd-Navbar__Link a:link, 
+.ttd-Navbar__Link a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+.ttd-Navbar__Link a:hover,
+.ttd-Navbar__Link a:active {
+    color:#42f46e;
+}
+
+.ttd-Navbar__Items {
+    display: flex;
+  }
+
+.ttd-Navbar__Items--right {
+    margin-left:auto;
+  }
+
+.ttd-Navbar__Link-toggle {
+    display: none;
+  }
 
 
 /* -------------- Footer styles ---------------*/
@@ -105,18 +185,47 @@ footer {
 
 /* -------- Styles for tablet size devices ---------- */
 
-@media all and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
     html {
         font-size: 120%;
     }
     /* -------- navigation styles ---------- */
-   
+    .ttd-Navbar__Items,
+    .ttd-Navbar {
+      flex-direction: column;
+    }
+
+    .ttd-Navbar__Link {
+        padding-bottom: 10px;
+        padding-right: 8px;
+      }
+
+    .ttd-Navbar__Items {
+        display: none;
+    }
+
+    .ttd-Navbar__Items--right {
+        margin-left: 0;
+      }
+    
+    .ttd-Navbar__ToggleShow {
+        display: flex;
+      }
+    
+    .ttd-Navbar__Link-toggle {
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    
 }
 
 
 /* -------- Styles for mobiles ---------- */
 
-@media all and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     html {
         font-size: 112%;
     }
